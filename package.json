@@ -5,10 +5,8 @@
   "main": "backend/server.ts",
   "scripts": {
     "dev": "nodemon --exec ts-node --esm backend/server.ts",
-    "build": "npm run build:frontend && npm run build:backend",
-    "build:frontend": "npm install --prefix frontend && npm run build --prefix frontend",
-    "build:backend": "tsc",
-    "start": "node dist/server.js"
+    "build": "tsc",
+    "start": "node dist/backend/server.js"
   },
   "keywords": [],
   "author": "",
