@@ -4,13 +4,13 @@ import fs from "fs"
 import path from "path"
 import "dotenv/config"
 
-import { connectDB } from "./lib/database.ts"
+import { connectDB } from "./lib/database.js"
 import { clerkMiddleware } from "@clerk/express"
 
 const server = express()
 const PORT = process.env.PORT || 5000
 const FRONTEND_URL = process.env.FRONTEND_URL
-const publicDir = path.join(process.cwd(), "public")
+const publicDir = path.join(process.cwd(), "frontend/dist")
 
 server.use(express.json())
 server.use(cors({ origin: FRONTEND_URL, credentials: true }))
