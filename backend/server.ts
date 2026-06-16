@@ -7,14 +7,14 @@ import "dotenv/config"
 import { connectDB } from "./lib/database"
 import { clerkMiddleware } from "@clerk/express"
 import { job } from "./lib/cron"
+import { clerkWebhook } from "./hooks/clerk.webhook"
 
 const server = express()
 const PORT = process.env.PORT || 5000
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5174"
-const publicDir = fs.existsSync(path.join(process.cwd(), "frontend/dist"))
-  ? path.join(process.cwd(), "frontend/dist")
-  : path.join(process.cwd(), "public")
+const publicDir = fs.existsSync(path.join(process.cwd(), "frontend/dist")) ? path.join(process.cwd(), "frontend/dist") : path.join(process.cwd(), "public")
 
+server.use("/api/webhooks/clerk", express.raw({ type: "application/json" }), clerkWebhook)
 server.use(express.json())
 server.use(cors({ origin: FRONTEND_URL, credentials: true }))
 server.use(clerkMiddleware())
