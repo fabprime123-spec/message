@@ -29,15 +29,18 @@ RUN npm run build
 FROM node:22-bookworm-slim AS runner
 WORKDIR /app
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=5000 
 
 COPY package*.json ./
 RUN npm install --omit=dev --no-audit --no-fund && npm cache clean --force
 
+# Copy the compiled backend code
 COPY --from=backend-build /app/dist ./dist
-COPY --from=frontend-build /app/frontend/dist ./public
 
-EXPOSE 3001
+# CRITICAL: Copy frontend build to the path backend/server.ts expects
+COPY --from=frontend-build /app/frontend/dist ./frontend/dist
+
+EXPOSE 5000
 USER node
 
 CMD ["node", "dist/backend/server.js"]

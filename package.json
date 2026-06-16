@@ -5,7 +5,7 @@
   "main": "backend/server.ts",
   "scripts": {
     "dev": "tsx watch backend/server.ts",
-    "build": "tsc",
+    "build": "tsc --outDir dist",
     "start": "node dist/backend/server.js"
   },
   "keywords": [],
