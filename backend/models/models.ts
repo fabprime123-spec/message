@@ -1,5 +1,5 @@
-import { Message } from "./message.model.js"
-import { User } from "./user.model.js"
+import { Message } from "./message.model"
+import { User } from "./user.model"
 
 export const Models = {
   Message,

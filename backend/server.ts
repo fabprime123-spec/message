@@ -4,7 +4,7 @@ import fs from "fs"
 import path from "path"
 import "dotenv/config"
 
-import { connectDB } from "./lib/database.js"
+import { connectDB } from "./lib/database"
 import { clerkMiddleware } from "@clerk/express"
 
 const server = express()

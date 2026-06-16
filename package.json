@@ -5,7 +5,7 @@
   "main": "backend/server.ts",
   "scripts": {
     "dev": "tsx watch backend/server.ts",
-    "build": "tsc --outDir dist",
+    "build": "esbuild backend/server.ts --bundle --platform=node --format=esm --outfile=dist/backend/server.js --packages=external",
     "start": "node dist/backend/server.js"
   },
   "keywords": [],
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
+    "esbuild": "^0.28.1",
     "nodemon": "^3.1.14",
     "ts-node": "^10.9.2",
     "tsx": "^4.22.4",
