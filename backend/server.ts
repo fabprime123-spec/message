@@ -10,6 +10,7 @@ import { job } from "./lib/cron"
 import { clerkWebhook } from "./hooks/clerk.webhook"
 
 import { authRoutes } from "./routes/auth.route"
+import { messageRoutes } from "./routes/message.route"
 
 const server = express()
 const PORT = process.env.PORT || 5000
@@ -26,6 +27,7 @@ server.get("/health", (req, res) => {
 })
 
 server.use("api/auth", authRoutes)
+server.use("/api/messages", messageRoutes)
 
 // if the public directory exists, serve the static files
 // this is for the production build
