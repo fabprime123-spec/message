@@ -6,6 +6,7 @@ import "dotenv/config"
 
 import { connectDB } from "./lib/database"
 import { clerkMiddleware } from "@clerk/express"
+import { job } from "./lib/cron"
 
 const server = express()
 const PORT = process.env.PORT || 5000
@@ -34,4 +35,6 @@ if (fs.existsSync(publicDir)) {
 server.listen(PORT, () => {
   connectDB()
   console.log(`\x1b[33\nmServer Running on - ${PORT}\x1b[0m`)
+
+  if (process.env.NODE_ENV === "production") { job.start() }
 })
