@@ -9,6 +9,8 @@ import { clerkMiddleware } from "@clerk/express"
 import { job } from "./lib/cron"
 import { clerkWebhook } from "./hooks/clerk.webhook"
 
+import { authRoutes } from "./routes/auth.route"
+
 const server = express()
 const PORT = process.env.PORT || 5000
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5174"
@@ -22,6 +24,8 @@ server.use(clerkMiddleware())
 server.get("/health", (req, res) => {
   res.status(200).json({ ok: true })
 })
+
+server.use("api/auth", authRoutes)
 
 // if the public directory exists, serve the static files
 // this is for the production build
