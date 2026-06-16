@@ -1,4 +1,5 @@
 import { ImageKitConfig, uploadChatMedia } from "../lib/imagekit"
+import { getRecieverSocketId, io } from "../lib/socket"
 import { Message } from "../models/message.model"
 import { User } from "../models/user.model"
 
@@ -89,7 +90,10 @@ export async function sendMessage(req: any, res: any) {
     })
     await newMessage.save()
 
-    // realtime communication with socket io    
+    // realtime communication with socket io
+    const receiverSocketId = getRecieverSocketId(receiverId)
+    if (receiverSocketId) io.to(receiverSocketId).emit("newMessage", newMessage)
+
     res.status(201).join(newMessage)
   }
   catch (error) {

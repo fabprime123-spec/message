@@ -8,6 +8,7 @@ import { connectDB } from "./lib/database"
 import { clerkMiddleware } from "@clerk/express"
 import { job } from "./lib/cron"
 import { clerkWebhook } from "./hooks/clerk.webhook"
+import { server as app } from "./lib/socket"
 
 import { authRoutes } from "./routes/auth.route"
 import { messageRoutes } from "./routes/message.route"
@@ -26,7 +27,7 @@ server.get("/health", (req, res) => {
   res.status(200).json({ ok: true })
 })
 
-server.use("api/auth", authRoutes)
+server.use("/api/auth", authRoutes)
 server.use("/api/messages", messageRoutes)
 
 // if the public directory exists, serve the static files
@@ -38,7 +39,7 @@ if (fs.existsSync(publicDir)) {
   })
 }
 
-server.listen(PORT, () => {
+app.listen(PORT, () => {
   connectDB()
   console.log(`\x1b[33\nmServer Running on - ${PORT}\x1b[0m`)
 
