@@ -33,7 +33,7 @@ router.post("/", async (req, res) => {
       )
     }
 
-    if (event.type = "user.deleted") {
+    if (event.type === "user.deleted") {
       if (event.data.id) await User.findOneAndDelete({ clerkId: event.data.id })
     }
 
