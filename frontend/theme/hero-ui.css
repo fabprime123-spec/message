@@ -1,0 +1,105 @@
+/**
+ * HeroUI accent presets — override `--accent` / `--accent-foreground` for light & dark
+ * while keeping `data-theme` as light | dark. Applied via `data-theme-preset` on <html>.
+ */
+@layer base {
+  /* --- Sky --- */
+  html[data-theme="light"][data-theme-preset="sky"] {
+    --accent: #0088c5;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="sky"] {
+    --accent: #6ac5e7;
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Lavender --- */
+  html[data-theme="light"][data-theme-preset="lavender"] {
+    --accent: #7364de;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="lavender"] {
+    --accent: #b0adfb;
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Mint --- */
+  html[data-theme="light"][data-theme-preset="mint"] {
+    --accent: #009558;
+    --accent-foreground: var(--eclipse);
+  }
+  html[data-theme="dark"][data-theme-preset="mint"] {
+    --accent: #6ecf9a;
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Netflix --- */
+  html[data-theme="light"][data-theme-preset="netflix"] {
+    --accent: #c90019;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="netflix"] {
+    --accent: #e64343;
+    --accent-foreground: var(--snow);
+  }
+
+  /* --- Uber --- */
+  html[data-theme="light"][data-theme-preset="uber"] {
+    --accent: #242933;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="uber"] {
+    --accent: #bec4d1;
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Spotify --- */
+  html[data-theme="light"][data-theme-preset="spotify"] {
+    --accent: #009614;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="spotify"] {
+    --accent: #4cc157;
+    --accent-foreground: var(--eclipse);
+  }
+
+  /* --- Coinbase --- */
+  html[data-theme="light"][data-theme-preset="coinbase"] {
+    --accent: #2955d3;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="coinbase"] {
+    --accent: #6d95ee;
+    --accent-foreground: var(--snow);
+  }
+
+  /* --- Airbnb --- */
+  html[data-theme="light"][data-theme-preset="airbnb"] {
+    --accent: #d7314b;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="airbnb"] {
+    --accent: #ea696e;
+    --accent-foreground: var(--snow);
+  }
+
+  /* --- Discord --- */
+  html[data-theme="light"][data-theme-preset="discord"] {
+    --accent: #4f58ce;
+    --accent-foreground: var(--snow);
+  }
+  html[data-theme="dark"][data-theme-preset="discord"] {
+    --accent: #808fee;
+    --accent-foreground: var(--snow);
+  }
+
+  /* --- Rabbit --- */
+  html[data-theme="light"][data-theme-preset="rabbit"] {
+    --accent: #e78c08;
+    --accent-foreground: var(--eclipse);
+  }
+  html[data-theme="dark"][data-theme-preset="rabbit"] {
+    --accent: #ffae5d;
+    --accent-foreground: var(--eclipse);
+  }
+}
